@@ -1,0 +1,20 @@
+fastlane_version "1.98.0"
+
+default_platform :ios
+
+platform :ios do
+
+  before_all do
+    xcversion(version: '~> 8.0.0')
+  end
+  
+  desc "Runs all the tests."
+  lane :runTests do
+    scan(
+      configuration: "Debug",
+      output_types: "junit",
+      device: "iPhone 6s (10.0)",
+    )
+  end
+  
+end
